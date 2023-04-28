@@ -1,0 +1,71 @@
+body {
+  background-image: linear-gradient(
+    to right,
+    rgba(22, 137, 132, 0.688),
+    rgba(244, 225, 102, 0.734),
+    rgba(244, 225, 102, 0.734),
+    rgba(22, 137, 132, 0.688)
+  );
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+nav {
+  background-color: rgba(16, 82, 78, 0.688);
+  color: white;
+}
+
+#searchInput {
+  width: 15rem;
+  padding-right: 60px;
+}
+
+#searchClearIcon {
+  color: rgba(0, 0, 0, 0.71);
+  position: absolute;
+  right: 105px;
+  width: 40px;
+  height: 40px;
+  line-height: 2.3;
+  cursor: pointer;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.532);
+}
+
+main {
+  margin-top: 7rem;
+}
+
+.card {
+  background-color: rgba(253, 250, 250, 0.948);
+  border-radius: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+/* clears the ‘X’ from Internet Explorer */
+input[type='search']::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type='search']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the ‘X’ from Chrome */
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  #searchClearIcon {
+    position: absolute;
+    left: 200px;
+  }
+}
