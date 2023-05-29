@@ -32,25 +32,6 @@ const generateRandomNo = () => {
   }
 };
 
-//get data from API
-let url = 'https://kontests.net/api/v1/all';
-let res = fetch(url);
-
-res
-  .then((response) => {
-    if (response.status >= 200 && response.status <= 299) {
-      return response.json();
-    } else {
-      return new Error('Error occured');
-    }
-  })
-  .then((value) => {
-    generateContestCards(value);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
 /**
  * function is used to generate Cards
  * @param {Array} value
@@ -143,9 +124,62 @@ const showSearchResults = (searchInputValue) => {
   }
 };
 
+/**
+ *
+ */
 const showAllCards = () => {
   let allCards = document.querySelectorAll('.card');
   allCards.forEach((card) => {
     card.classList.remove('hide');
   });
 };
+
+/**
+ * This function shows loader till hackathon data is fetched from kontests API.
+ */
+const showLoader = () => {
+  cardContainer.innerHTML = `
+                           <div class="loader text-center">
+                              <div class="spinner" id="spinner">
+                                  <i class="fa fa-spinner fa-5x"></i>
+                              </div>
+                              <p>Relax. Fetching your hackathons.</p>
+                          </div> `;
+};
+
+/**
+ * This function fetches hackathons data from kontests API
+ */
+const getData = () => {
+  //get data from API
+  let url = 'https://kontests.net/api/v1/all';
+  let res = fetch(url);
+
+  res
+    .then((response) => {
+      if (response.status >= 200 && response.status <= 299) {
+        return response.json();
+      } else {
+        return new Error('Error occured');
+      }
+    })
+    .then((value) => {
+      generateContestCards(value);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+/**
+ * This is driver function which loads hackathon data.
+ */
+const loadData = () => {
+  showLoader();
+  getData();
+};
+
+/**
+ * Calling driver function loadData()
+ */
+loadData();
