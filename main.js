@@ -125,7 +125,7 @@ const showSearchResults = (searchInputValue) => {
 };
 
 /**
- *
+ * This function shows all cards when search input is cleared.
  */
 const showAllCards = () => {
   let allCards = document.querySelectorAll('.card');
