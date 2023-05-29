@@ -1,16 +1,34 @@
+/* || VARIABLE DECLARATION */
+
+:root {
+  --navbar-color: rgba(16, 82, 78, 0.688);
+  --primary-color: rgba(22, 137, 132, 0.688);
+  --secondary-color: rgba(244, 225, 102, 0.734);
+  --loader-color: rgb(39, 142, 182);
+}
+
+/* || UTILITY CLASSES*/
+
+.hide {
+  display: none;
+}
+
+/* || BODY */
+
 body {
   background-image: linear-gradient(
     to right,
-    rgba(22, 137, 132, 0.688),
-    rgba(244, 225, 102, 0.734),
-    rgba(244, 225, 102, 0.734),
-    rgba(22, 137, 132, 0.688)
+    var(--primary-color),
+    var(--secondary-color),
+    var(--secondary-color),
+    var(--primary-color)
   );
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+/* NAVBAR */
 nav {
-  background-color: rgba(16, 82, 78, 0.688);
+  background-color: var(--navbar-color);
   color: white;
 }
 
@@ -30,6 +48,8 @@ nav {
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.532);
 }
 
+/* || MAIN */
+
 main {
   margin-top: 7rem;
 }
@@ -39,7 +59,7 @@ main {
   height: 120px;
   margin-top: 10rem;
   margin-inline: auto;
-  color: rgb(39, 142, 182);
+  color: var(--loader-color);
   font-weight: bold;
   font-style: italic;
 }
@@ -49,7 +69,7 @@ main {
   width: 120px;
   height: 120px;
   animation: spin 1s linear infinite;
-  color: rgb(39, 142, 182);
+  color: var(--loader-color);
 }
 
 @keyframes spin {
@@ -61,10 +81,6 @@ main {
 .card {
   background-color: rgba(253, 250, 250, 0.948);
   border-radius: 20px;
-}
-
-.hide {
-  display: none;
 }
 
 /* clears the ‘X’ from Internet Explorer */
@@ -86,6 +102,8 @@ input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   display: none;
 }
+
+/* || MEDIA QUERIES */
 
 @media screen and (max-width: 992px) {
   #searchClearIcon {
